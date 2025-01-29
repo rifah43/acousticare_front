@@ -3,11 +3,12 @@ import 'package:acousticare_front/providers/notification_provider.dart';
 import 'package:acousticare_front/providers/user_provider.dart';
 import 'package:acousticare_front/views/flash_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();  // Add this line
-  // await dotenv.load(fileName: ".env");
+  WidgetsFlutterBinding.ensureInitialized();  
+  await dotenv.load(fileName: ".env");
   runApp(
     MultiProvider(
       providers: [

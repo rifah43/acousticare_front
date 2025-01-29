@@ -1,12 +1,14 @@
 import 'package:acousticare_front/providers/user_provider.dart';
 import 'package:acousticare_front/views/bottom_navbar.dart';
 import 'package:acousticare_front/views/custom_topbar.dart';
+import 'package:acousticare_front/views/dashboard/dashboard.dart';
 import 'package:acousticare_front/views/drawerPages/feedback_page.dart';
 import 'package:acousticare_front/views/drawerPages/help_support.dart';
 import 'package:acousticare_front/views/drawerPages/notification_page.dart';
 import 'package:acousticare_front/views/drawerPages/switchProfile.dart';
 import 'package:acousticare_front/views/drawerPages/terms_and_privacy.dart';
 import 'package:acousticare_front/views/styles.dart';
+import 'package:acousticare_front/views/voiceRecorder/record_voice.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 class HomePage extends StatefulWidget {

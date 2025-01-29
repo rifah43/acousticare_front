@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:acousticare_front/providers/user_provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'auth_service.dart';
 
@@ -9,7 +10,7 @@ class ApiProvider {
   static const int timeoutDuration = 10;
   
   String get _baseUrl {
-    final url = "http://192.168.0.197:8000";
+    final url = dotenv.env['API_BASE_URL'];
     if (url == null || url.isEmpty) {
       throw Exception('API_BASE_URL not found in environment variables');
     }

@@ -1,12 +1,12 @@
 // import 'dart:convert';
 // import 'dart:io';
-// import 'package:acousti_care_frontend/models/user.dart';
-// import 'package:acousti_care_frontend/providers/user_provider.dart';
-// import 'package:acousti_care_frontend/services/http_provider.dart';
-// import 'package:acousti_care_frontend/views/styles.dart';
+// import 'package:acousticare_front/models/user.dart';
+// import 'package:acousticare_front/providers/user_provider.dart';
+// import 'package:acousticare_front/services/http_provider.dart';
+// import 'package:acousticare_front/utils/permission_handler.dart';
+// import 'package:acousticare_front/views/styles.dart';
 // import 'package:path/path.dart' as p;
 // import 'package:flutter/material.dart';
-// import 'package:path_provider/path_provider.dart';
 // import 'package:provider/provider.dart';
 // import 'package:record/record.dart';
 
@@ -19,7 +19,7 @@
 
 // class _RecordVoiceState extends State<RecordVoice>
 //     with SingleTickerProviderStateMixin {
-//   final Record _audioRecorder = Record();
+//   final _audioRecorder = AudioRecorder();
 //   bool isRecording = false;
 //   String? recPath;
 //   final ApiProvider apiProvider = ApiProvider();
@@ -36,26 +36,30 @@
 //       vsync: this,
 //       duration: const Duration(seconds: 2),
 //     )..repeat();
+//     checkAndRequestPermission();
 //   }
 
 //   Future<void> _startRecording() async {
 //     try {
 //       if (await _audioRecorder.hasPermission()) {
-//         final Directory appDirectory = await getApplicationDocumentsDirectory();
+//         // final Directory appDirectory = await getApplicationDocumentsDirectory();
 //         final now = DateTime.now();
 //         final timestamp =
 //             "${now.year}${now.month.toString().padLeft(2, '0')}${now.day.toString().padLeft(2, '0')}_"
 //             "${now.hour.toString().padLeft(2, '0')}${now.minute.toString().padLeft(2, '0')}${now.second.toString().padLeft(2, '0')}";
 
 //         final String path =
-//             p.join(appDirectory.path, "recording_$timestamp.wav");
+//             p.join( "recording_$timestamp.wav");
 
 //         await _audioRecorder.start(
+//           const RecordConfig(
 //             encoder: AudioEncoder.wav,
-//             path: path,
-//             samplingRate: 44100,
+//             sampleRate: 44100,
 //             bitRate: 16,
-//             numChannels: 1);
+//             numChannels: 1,
+//           ),
+//           path: path,
+//         );
 
 //         setState(() {
 //           isRecording = true;
